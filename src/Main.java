@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     /*
      * This method calculates the lowest number in array
@@ -46,12 +48,37 @@ public class Main {
         int[] m={3,4,5,5,35};
         return getMean(0,m,0);
     }
+
+    /*
+     * This method gives array in reverse order
+     * it uses recursive approach
+     * Time complexity: O(n) ,where n is the length of array
+     * The recursion runs within array from length-1 to 0
+     * resulting in linear time complexity
+     *
+     * @param currentIndex is index of the array, m is input array , sum is sum of array fo each element
+     *@return the  mean of the array
+     * */
+    public static void Reverse(int[] m, int length, int curr) {
+        if (length >= (m.length - 1) / 2) {
+            return;
+        }
+        int temp = m[length];
+        m[length] = m[m.length - 1 - length];
+        m[m.length - 1 - length] = temp;
+        Reverse(m, length + 1, curr);
+    }
+    public static void Reverse(int[] m)
+    {
+        Reverse(m,0,0);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        double result =getMean();
+        int[] m={7,6,5,4,3,2,1,2};
+        Reverse(m);
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("Lowest number "+result);
+        Arrays.stream(m).forEach(System.out::println);
         System.out.println("Duration "+duration);
     }
 }
