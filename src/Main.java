@@ -110,16 +110,37 @@ public class Main {
         }
         return num*getPower(num,degree-1);
     }
+
     public static int getPower()
     {
         return getPower(2,10);
     }
+    /**
+     * This method calculates the nth Fibonacci number using a recursive approach.
+     * Time complexity: O(2^n), where n represents the input parameter.
+     * The recursion explores the Fibonacci sequence up to the nth number,
+     * resulting in exponential time complexity.
+     *
+     * @param n the index of the Fibonacci number to be calculated
+     * @return the nth Fibonacci number
+     */
+    public static int Fibonachi(int n)
+    {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        return  Fibonachi(n-1)+Fibonachi(n-2);
+    }
+    public static int Fibonachi()
+    {
+        return Fibonachi(17);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=getPower();
+        int result=Fibonachi();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("2 ^ 10  is "+result);
+        System.out.println("at 17 fibonachi  is "+result);
         System.out.println("Duration "+duration);
     }
 }
