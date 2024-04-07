@@ -145,20 +145,20 @@ public class Main {
      * @param k the number of items to choose
      * @return the binomial coefficient (n choose k)
      */
-    public static int getBinomialCoefficient(int n,int k)
+    public static int getBinomialCoefficients(int n,int k)
     {
         if (k == n || k == 0) {
             return 1;
         }
-        return getBinomialCoefficient(n-1,k-1)+getBinomialCoefficient(n-1,k);
+        return getBinomialCoefficients(n-1,k-1)+getBinomialCoefficients(n-1,k);
     }
-    public static int getBinomialCoefficient()
+    public static int getBinomialCoefficients()
     {
-        return getBinomialCoefficient(7,3);
+        return getBinomialCoefficients(7,3);
     }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=getBinomialCoefficient();
+        int result=getBinomialCoefficients();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
         System.out.println("n=7 k=3  Binomial Coefficient is "+result);
