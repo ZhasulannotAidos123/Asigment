@@ -72,13 +72,33 @@ public class Main {
     {
         Reverse(m,0,0);
     }
+    /*
+     * This method calculates the factorial
+     * it uses recursive approach
+     * Time complexity: O(n) ,where n is represents the input parameter
+     * The recursion runs within array from n to 1
+     * resulting in linear time complexity
+     * @param the number , which we must calculate factorial
+     *@return return factorial of n
+     * */
+    public static int Factorial(int n)
+    {
+        if(n==0)
+        {
+            return  1;
+        }
+        return n*Factorial(n-1);
+    }
+    public static int Factorial()
+    {
+        return Factorial(5);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int[] m={7,6,5,4,3,2,1,2};
-        Reverse(m);
+        int result=Factorial();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        Arrays.stream(m).forEach(System.out::println);
+        System.out.println("Factorial of 5 is "+result);
         System.out.println("Duration "+duration);
     }
 }
