@@ -156,12 +156,35 @@ public class Main {
     {
         return getBinomialCoefficients(7,3);
     }
+    /**
+     * This method calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
+     * Time complexity: O(log(min(a, b))), where a and b represent the input parameters.
+     * The recursion reduces the problem size by dividing a by b repeatedly until b becomes zero,
+     * resulting in logarithmic time complexity.
+     *
+     * @param a the first number
+     * @param b the second number
+     * @return the greatest common divisor of a and b
+     */
+
+    public static int getGCD(int a,int b)
+    {
+        if(b==0)
+        {
+            return a;
+        }
+        return  getGCD(b,a%b);
+    }
+    public static int getGCD()
+    {
+        return  getGCD(48,32);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=getBinomialCoefficients();
+        int result=getGCD();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("n=7 k=3  Binomial Coefficient is "+result);
+        System.out.println("the GCD of 48 and 32 is  "+result);
         System.out.println("Duration "+duration);
     }
 }
