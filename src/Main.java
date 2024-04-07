@@ -135,12 +135,33 @@ public class Main {
     {
         return Fibonachi(17);
     }
+    /**
+     * This method calculates the binomial coefficient (n choose k) using a recursive approach.
+     * Time complexity: O(2^n), where n represents the input parameter.
+     * The recursion explores the Pascal's triangle up to the nth row,
+     * resulting in exponential time complexity.
+     *
+     * @param n the total number of items
+     * @param k the number of items to choose
+     * @return the binomial coefficient (n choose k)
+     */
+    public static int getBinomialCoefficient(int n,int k)
+    {
+        if (k == n || k == 0) {
+            return 1;
+        }
+        return getBinomialCoefficient(n-1,k-1)+getBinomialCoefficient(n-1,k);
+    }
+    public static int getBinomialCoefficient()
+    {
+        return getBinomialCoefficient(7,3);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=Fibonachi();
+        int result=getBinomialCoefficient();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("at 17 fibonachi  is "+result);
+        System.out.println("n=7 k=3  Binomial Coefficient is "+result);
         System.out.println("Duration "+duration);
     }
 }
