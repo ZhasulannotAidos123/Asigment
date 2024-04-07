@@ -25,10 +25,30 @@ public class Main {
         int[] m={3,4,1,5,-12};
         return lowestNumber(m.length-1,m,0);
     }
-
+    /*
+     * This method calculates the mean of the array
+     * it uses recursive approach
+     * Time complexity: O(n) ,where n is the length of array
+     * The recursion runs within array from length-1 to 0
+     * resulting in linear time complexity
+     *
+     * @param currentIndex is index of the array, m is input array , sum is sum of array fo each element
+     *@return the  mean of the array
+     * */
+    public static double getMean(int currIndex, int[] m,double sum) {
+        if (currIndex == m.length) {
+            return (double) sum / m.length;
+        }
+        return getMean(currIndex + 1,m,m[currIndex]+sum);
+    }
+    public static double getMean()
+    {
+        int[] m={3,4,5,5,35};
+        return getMean(0,m,0);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        double result =lowestNumber();
+        double result =getMean();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
         System.out.println("Lowest number "+result);
