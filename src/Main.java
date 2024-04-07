@@ -93,12 +93,33 @@ public class Main {
     {
         return Factorial(5);
     }
+    /*
+     * This method calculates the power of a number using recursive approach.
+     * Time complexity: O(т), where degree represents the input parameter.
+     * The recursion runs within the range from degree to 1, resulting in linear time complexity.
+     *
+     * @param num the base number
+     * @param degree the degree of the power
+     * @return the result of raising num to the power of degree
+     */
+    public static int getPower(int num,int degree)
+    {
+        if(degree==0)
+        {
+            return 1;
+        }
+        return num*getPower(num,degree-1);
+    }
+    public static int getPower()
+    {
+        return getPower(2,10);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=Factorial();
+        int result=getPower();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("Factorial of 5 is "+result);
+        System.out.println("2 ^ 10  is "+result);
         System.out.println("Duration "+duration);
     }
 }
