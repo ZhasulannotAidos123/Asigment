@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+import java.lang.String;
 public class Main {
     /*
      * This method calculates the lowest number in array
@@ -179,12 +179,35 @@ public class Main {
     {
         return  getGCD(48,32);
     }
+    /**
+     * This method checks if a given string consists only of digits.
+     * Time complexity: O(n), where n is the length of the input string.
+     * The recursion explores each character of the string once,
+     * resulting in linear time complexity.
+     *
+     * @param text the input string to be checked
+     * @return Yes if the string consists only of digits, otherwise no
+     */
+    public static String isAllDigits(String text) {
+        if (text.isEmpty()) {
+            return "yes";
+        }
+        char firstChar = text.charAt(0);
+        if (!Character.isDigit(firstChar)) {
+            return "no";
+        }
+        return isAllDigits(text.substring(1));
+    }
+    public static String isAllDigits()
+    {
+        return  isAllDigits("123a12");
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        int result=getGCD();
+        String result=isAllDigits();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("the GCD of 48 and 32 is  "+result);
+        System.out.println("is 123a12 contained щтдн char ? "+result);
         System.out.println("Duration "+duration);
     }
 }
