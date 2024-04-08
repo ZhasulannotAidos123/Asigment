@@ -202,12 +202,37 @@ public class Main {
     {
         return  isAllDigits("123a12");
     }
+    /**
+     * This method determines if a given number is prime.
+     * Time complexity: O((N)), where N is the input number.
+     * The function checks divisors up to N in worst scenario if N is prime.
+     *
+     * @param N the number to be checked
+     * @param divisor the current divisor being tested
+     */
+    public static void  checkPrime(int N,int divisor)
+    {
+        if(divisor==N)
+        {
+            System.out.println("Prime");
+            return ;
+        }
+        if(N%divisor==0)
+        {
+            System.out.println("Composite");
+            return ;
+        }
+        checkPrime(N,divisor+1);
+    }
+    public static void checkPrime()
+    {
+        checkPrime(9,2);
+    }
     public static void main(String[] args) {
         double startTime=System.nanoTime();
-        String result=isAllDigits();
         double endTime =System.nanoTime();
         double duration =(endTime-startTime)/1000000;
-        System.out.println("is 123a12 contained щтдн char ? "+result);
+        checkPrime();
         System.out.println("Duration "+duration);
     }
 }
